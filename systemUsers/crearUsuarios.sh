@@ -18,7 +18,9 @@ fi
 
 # Construimos el menu dentro de un bucle de forma que lo repinte cuando sea necesario
 
-
+echo "ingresa el nombre del grupo"
+read grupo
+sudo groupadd $grupo
 
 
 
