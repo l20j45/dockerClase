@@ -1,0 +1,11 @@
+FROM ubuntu
+RUN apt upgrade -y
+RUN apt update -y && apt install openssh-server sudo -y
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 usuario
+RUN echo 'usuario:usuario' | chpasswd
+RUN echo 'root:root' | chpasswd
+RUN service ssh start
+EXPOSE 80
+EXPOSE 3306
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
