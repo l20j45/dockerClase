@@ -11,9 +11,11 @@ _menu()
     echo "Selecciona una opcion:"
     echo
     echo "1) Crear contenedores"
-    echo "2) Parar contenedores"
-    echo "3) Iniciar contenedores"
-    echo "4) listar contenedores"
+    echo "2) Crear contenedores Pi"
+    echo "3) Parar contenedores"
+    echo "4) Iniciar contenedores"
+    echo "5) listar contenedores"
+    echo "6) eliminar contenedores"
     echo
     echo "9) Salir"
     echo
@@ -47,27 +49,35 @@ do
             ;;
         2)
             _mostrarResultado $opc
+                        echo "1) Crear contenedores "
+                        bash creacionDockerPi.sh
+                        pause 'Press [Enter] key to continue...'
+            _menu
+            ;;
+        3)
+            _mostrarResultado $opc
 			echo "2) Parar contenedores"
 			bash detenerDocker.sh
 			pause 'Press [Enter] key to continue...'
             _menu
             ;;
-        3)
+        4)
             _mostrarResultado $opc
 			echo "3) Iniciar contenedores"
 			bash iniciarDocker.sh
 			pause 'Press [Enter] key to continue...'
             _menu
             ;;
-        4)
+        5)
             _mostrarResultado $opc
 			echo "4) listar contenedores"
             sudo docker ps -a
 			pause 'Press [Enter] key to continue...'
             _menu
             ;;
-        5)
+        6)
             _mostrarResultado $opc
+                        bash eliminarDockers.sh
 			pause 'Press [Enter] key to continue...'
             _menu
             ;;
